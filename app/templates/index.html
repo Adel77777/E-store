@@ -14,5 +14,18 @@
       <p>{{ product.price }} DA</p>
     </div>
   {% endfor %}
+  { %extends "base.html" % }
+  {% block content %}
+    <section class="hero">
+      <h1>Comfort for every day</h1>
+      <p>Light, colorful and easy to wear.</p>
+      <a class="button" href="{{ url_for('main.shop') }}">Shop now</a>
+    </section>
+
+    <h2>New arrivals</h2>
+    <div class="grid">
+      {% for p in featured %}{% include "_product_card.html" %}{% endfor %}
+    </div>
+  {% endblock %}
 </body>
 </html>

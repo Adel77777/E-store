@@ -13,7 +13,7 @@ def create_app():
 
     @app.context_processor
     def inject_shop():
-        return {"shop_name": app.config["SHOP_NAME"], "accent_color": app.config["ACCENT_COLOR"]},
+        return {"shop_name": app.config["SHOP_NAME"], "accent_color": app.config["ACCENT_COLOR"],
         "background_color": app.config["BACKGROUND_COLOR"], "shop_description": app.config["SHOP_DESCRIPTION"]}
    
 
