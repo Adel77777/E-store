@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }} - {{ My_Store }}{% endblock %}
+{% block content %}
+<div class="product-page">
+    <img class="product-img" src="{{ product.image }}" alt="{{ product.name }}">
+    <div>
+        <h1>{{ product.name }}</h1>
+        <p class="price">{{ "{:,}".format(product.price) }} DA</p>
+        <p>{{ product.description }}</p>
+
+        {% if colors %}
+            <h3>Available Colors:</h3>
+            <div class="chips" data-group="color">
+                {% for color in colors %}
+                <button type="button" class="chip" data-value="{{ color }}">{{ color }}</button>
+                {% endfor %}
+            </div>
+
+            <h3>Available Sizes:</h3>
+            <div class="chips" data-group="size">
+                {% for size in sizes %}
+                <button type="button" class="chip" data-value="{{ size }}">{{ size }}</button>
+                {% endfor %}
+            </div>
+
+            <p id="selection" class="muted">Please select a color and size.</p>
+        {% else %}
+            <p class="badge">Sold Out</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Shop - {{ My_Store }}{% endblock %}
+{% block content %}
+<h1>Our Products</h1>
+<div class="grid">
+  {% for product in products %}{% include "_product_card.html" %}
+  {% else %}
+  <p>No products available.</p>
+  {% endfor %}
+</div>
+{% endblock %}

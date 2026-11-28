@@ -1,4 +1,6 @@
 from flask import Blueprint, render_template
+from .extensions import db
+from .models import Product
 
 main = Blueprint('main', __name__)
 
@@ -20,4 +22,4 @@ def product(product_id):
     in_stock = [v for v in item.variants if v.stock > 0]
     colors = sorted({v.color for v in in_stock})
     sizes = sorted({v.size for v in in_stock})
-    return render_template('products.html', item=item, colors=colors, sizes=sizes)
+    return render_template('product.html', product=item, colors=colors, sizes=sizes)
